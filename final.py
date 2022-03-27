@@ -50,9 +50,7 @@ def eliminar(columnsdrop, dfsucio):
     columnasEliminar = pd.read_csv(columnsdrop, encoding="ISO-8859-1") 
     DfSucio = dfsucio
     #DfSucio = pd.read_csv(dfsucio, encoding='ISO-8859-1')
-    ColumnsDrop = []
-    for i in columnasEliminar['Borrar']:
-        ColumnsDrop.append(i)
+    ColumnsDrop = columnasEliminar['Borrar'].tolist()
 
     DfLimpio = DfSucio.drop(ColumnsDrop, axis = 1).copy(deep=True)
     DfLimpioNoNa = DfLimpio.fillna(' ').copy(deep=True)
